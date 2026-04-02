@@ -1,0 +1,30 @@
+{
+  "expo": {
+    "name": "AquaCare",
+    "slug": "aquacare",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "scheme": "aquacare",
+    "userInterfaceStyle": "automatic",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#004473"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.aquacare.app"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#004473"
+      },
+      "package": "com.aquacare.app"
+    },
+    "plugins": [
+      "expo-router"
+    ]
+  }
+}

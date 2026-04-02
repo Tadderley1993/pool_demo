@@ -1,0 +1,71 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Material Symbol defaults — font loaded via <link> in layout.tsx <head> ── */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 300, "GRAD" 0, "opsz" 24;
+  display: inline-block;
+  line-height: 1;
+  user-select: none;
+}
+.material-symbols-outlined.filled {
+  font-variation-settings: "FILL" 1, "wght" 300, "GRAD" 0, "opsz" 24;
+}
+
+/* ── Editorial typography utility ───────────────────────────────────────────── */
+.editorial-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* ── Wave section divider ────────────────────────────────────────────────────── */
+/* NOTE: kept in @layer base so Tailwind position utilities (absolute/relative)
+   can still override .wave-container when needed (e.g. hero overlay waves). */
+@layer base {
+  .wave-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+  }
+  .wave-container svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+  }
+}
+
+/* ── Gradient utilities ──────────────────────────────────────────────────────── */
+.liquid-gradient {
+  background: linear-gradient(135deg, #000d22 0%, #0a2342 100%);
+}
+
+/* ── Glassmorphism utility ───────────────────────────────────────────────────── */
+.glass {
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* ── Text shadow for hero overlaid on images ─────────────────────────────────── */
+.text-shadow-hero {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* ── Ghost inputs (editorial contact form) ───────────────────────────────────── */
+.ghost-input {
+  border: none;
+  border-bottom: 1.5px solid rgba(0, 13, 34, 0.2);
+  background: transparent;
+  transition: border-color 0.3s ease;
+}
+.ghost-input:focus {
+  outline: none;
+  border-bottom-color: #775a19;
+  box-shadow: none;
+}
+
+/* ── Smooth page transitions ─────────────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}
