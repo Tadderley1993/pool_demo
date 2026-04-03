@@ -22,7 +22,7 @@ export default function ServicesPage() {
 
 function HeroSection() {
   return (
-    <section className="px-8 md:px-24 pt-40 pb-16 bg-surface">
+    <section className="px-5 sm:px-8 md:px-24 pt-28 sm:pt-36 md:pt-40 pb-10 sm:pb-16 bg-surface">
       <div className="max-w-4xl">
         <span className="editorial-caps text-secondary text-xs font-bold mb-4 block">
           Bespoke Maintenance
@@ -46,13 +46,13 @@ function PackagesSection() {
   const [weekly, chemical, filter, repair, seasonal] = brand.services;
 
   return (
-    <section className="px-8 md:px-24 py-24 bg-surface">
+    <section className="px-5 sm:px-8 md:px-24 py-16 md:py-24 bg-surface">
       <h2 className="font-headline text-3xl text-primary mb-12 border-l-4 border-secondary pl-6">
         Signature Care Packages
       </h2>
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8">
         {/* Large featured card */}
-        <div className="md:col-span-7 bg-surface-container-lowest p-12 rounded-xl flex flex-col justify-between group transition-all hover:border-b-4 hover:border-secondary border-b-4 border-transparent">
+        <div className="md:col-span-7 bg-surface-container-lowest p-6 sm:p-10 md:p-12 rounded-xl flex flex-col justify-between group transition-all hover:border-b-4 hover:border-secondary border-b-4 border-transparent">
           <div>
             <div className="flex justify-between items-start mb-10">
               <div>
@@ -101,7 +101,7 @@ function PackagesSection() {
         </div>
 
         {/* Dark seasonal card */}
-        <div className="md:col-span-5 bg-primary-container text-white p-12 rounded-xl flex flex-col justify-between">
+        <div className="md:col-span-5 bg-primary-container text-white p-6 sm:p-10 md:p-12 rounded-xl flex flex-col justify-between">
           <div>
             <span className="editorial-caps text-[10px] font-bold text-on-primary-container">Seasonal</span>
             <h3 className="font-headline text-4xl mt-4 mb-6">{seasonal.name}</h3>
@@ -123,7 +123,7 @@ function PackagesSection() {
         </div>
 
         {/* Remaining services */}
-        <div className="md:col-span-7 bg-surface-container-low p-12 rounded-xl">
+        <div className="md:col-span-7 bg-surface-container-low p-6 sm:p-10 md:p-12 rounded-xl">
           <div className="flex flex-col md:flex-row gap-10">
             <div className="flex-1">
               <span className="editorial-caps text-[10px] font-bold text-on-surface-variant">Core Services</span>
@@ -167,7 +167,7 @@ function PackagesSection() {
 
 function SpecializedSection() {
   return (
-    <section className="px-8 md:px-24 py-24 bg-surface overflow-hidden">
+    <section className="px-5 sm:px-8 md:px-24 py-16 md:py-24 bg-surface overflow-hidden">
       <div className="flex flex-col md:flex-row justify-between items-end mb-4 gap-8">
         <div className="max-w-xl">
           <h2 className="font-headline text-5xl text-primary mb-5">Specialized Care</h2>
@@ -250,7 +250,7 @@ function FeatureSection() {
 
 function AuditCta() {
   return (
-    <section className="px-8 md:px-24 py-32 bg-surface text-center">
+    <section className="px-5 sm:px-8 md:px-24 py-20 md:py-32 bg-surface text-center">
       <div className="max-w-3xl mx-auto">
         <span className="material-symbols-outlined text-5xl text-secondary mb-6 block" style={{ fontVariationSettings: "'FILL' 1" }}>waves</span>
         <h2 className="font-headline text-5xl text-primary mb-8">

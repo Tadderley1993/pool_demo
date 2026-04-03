@@ -18,8 +18,8 @@ export default function ContactPage() {
 
 function HeroSection() {
   return (
-    <section className="px-8 py-24 md:pt-36 md:pb-16 max-w-7xl mx-auto">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+    <section className="px-5 sm:px-8 py-20 md:pt-36 md:pb-16 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
         <div>
           <span className="editorial-caps text-secondary font-bold text-xs mb-4 block">Personalized Care</span>
           <h1 className="font-headline text-5xl md:text-7xl text-primary leading-tight mb-8">
@@ -74,8 +74,8 @@ function FormSection() {
       </div>
 
       <section className="bg-surface-container-low py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
+        <div className="max-w-7xl mx-auto px-5 sm:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16">
 
             {/* Sidebar */}
             <div className="lg:col-span-4 space-y-14">
@@ -144,13 +144,13 @@ function FormSection() {
             </div>
 
             {/* Form */}
-            <div className="lg:col-span-8 bg-surface-container-lowest p-8 md:p-14 shadow-sm rounded-xl">
+            <div className="lg:col-span-8 bg-surface-container-lowest p-6 sm:p-8 md:p-14 shadow-sm rounded-xl">
               <h2 className="font-headline text-3xl text-primary mb-2">Request an Assessment</h2>
               <p className="text-on-surface-variant mb-10 font-light">
                 Submit your details and our lead curator will contact you within 24 hours.
               </p>
               <form className="space-y-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                   <div className="flex flex-col gap-2">
                     <label className="editorial-caps text-[10px] font-bold text-primary">Full Name</label>
                     <input type="text" placeholder="Jane Sterling" className="ghost-input py-3 px-0 placeholder:text-outline/50 text-on-surface" />
@@ -160,7 +160,7 @@ function FormSection() {
                     <input type="email" placeholder="jane@estate.com" className="ghost-input py-3 px-0 placeholder:text-outline/50 text-on-surface" />
                   </div>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10">
                   <div className="flex flex-col gap-2">
                     <label className="editorial-caps text-[10px] font-bold text-primary">Service Interest</label>
                     <select className="ghost-input py-3 px-0 text-on-surface-variant focus:outline-none">
@@ -240,7 +240,7 @@ function MapSection() {
         <div className="w-24 h-px bg-secondary opacity-30" />
       </div>
 
-      <div className="relative h-[520px] w-full overflow-hidden rounded-xl shadow-sm">
+      <div className="relative h-[320px] sm:h-[420px] md:h-[520px] w-full overflow-hidden rounded-xl shadow-sm">
         <svg viewBox="0 0 1000 520" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
             <filter id="pinShadow" x="-60%" y="-60%" width="220%" height="220%">

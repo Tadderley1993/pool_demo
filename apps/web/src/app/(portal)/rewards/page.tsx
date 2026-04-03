@@ -14,13 +14,13 @@ export default function RewardsPage() {
   return (
     <div className="pt-4 pb-8 px-4 md:px-8 max-w-7xl mx-auto">
       {/* Points hero */}
-      <section className="relative mb-16 overflow-hidden rounded-[2rem] bg-gradient-to-br from-primary to-primary-container p-8 md:p-12 text-on-primary">
+      <section className="relative mb-10 md:mb-16 overflow-hidden rounded-2xl md:rounded-[2rem] bg-gradient-to-br from-primary to-primary-container p-6 sm:p-8 md:p-12 text-on-primary">
         <div className="relative z-10 flex flex-col md:flex-row justify-between items-end gap-8">
           <div className="w-full md:w-1/2">
             <span className="font-label text-sm uppercase tracking-widest opacity-80 mb-2 block">
               Your Balance
             </span>
-            <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter mb-4">
+            <h1 className="font-headline text-4xl sm:text-5xl md:text-7xl font-extrabold tracking-tighter mb-4">
               {userPoints.toLocaleString()}{" "}
               <span className="text-2xl font-medium tracking-normal opacity-90">
                 {rewards.programName}
@@ -94,7 +94,7 @@ export default function RewardsPage() {
             <span className="material-symbols-outlined">chevron_right</span>
           </button>
           <div className="absolute -bottom-10 -right-10 opacity-10 group-hover:scale-110 transition-transform pointer-events-none">
-            <span className="material-symbols-outlined text-[12rem]">waves</span>
+            <span className="material-symbols-outlined text-8xl md:text-[12rem]">waves</span>
           </div>
         </div>
       </div>

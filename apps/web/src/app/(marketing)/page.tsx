@@ -32,17 +32,17 @@ function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-5 sm:px-8 w-full">
         <div className="max-w-3xl">
-          <span className="editorial-caps text-sm mb-6 block font-semibold" style={{ color: "#4dd9e0" }}>
+          <span className="editorial-caps text-xs sm:text-sm mb-4 sm:mb-6 block font-semibold" style={{ color: "#4dd9e0" }}>
             {brand.hero.badge}
           </span>
-          <h1 className="font-headline text-5xl md:text-7xl text-white leading-[1.1] -tracking-wide mb-8">
+          <h1 className="font-headline text-4xl sm:text-5xl md:text-7xl text-white leading-[1.1] -tracking-wide mb-6 sm:mb-8">
             {brand.hero.headline.split("\n")[0]}{" "}
             <br />
             <span className="italic font-normal">{brand.hero.headline.split("\n")[1]}</span>
           </h1>
-          <p className="text-white/80 text-xl font-light mb-12 max-w-xl leading-relaxed">
+          <p className="text-white/80 text-base sm:text-xl font-light mb-8 sm:mb-12 max-w-xl leading-relaxed">
             {brand.hero.subline}
           </p>
           <div className="flex flex-col sm:flex-row gap-5">
@@ -76,13 +76,13 @@ function HeroSection() {
 
 function PhilosophySection() {
   return (
-    <section className="py-32 bg-surface relative">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-24 items-center">
-          <div className="space-y-10">
-            <div className="space-y-5">
+    <section className="py-16 md:py-32 bg-surface relative">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+          <div className="space-y-8 md:space-y-10">
+            <div className="space-y-4 sm:space-y-5">
               <span className="editorial-caps text-secondary text-xs font-semibold">Our Philosophy</span>
-              <h2 className="font-headline text-4xl md:text-5xl text-primary leading-tight">
+              <h2 className="font-headline text-3xl sm:text-4xl md:text-5xl text-primary leading-tight">
                 A curated reflection of <br />
                 <span className="italic font-normal">your standards.</span>
               </h2>
@@ -142,16 +142,16 @@ function PhilosophySection() {
 
 function BentoSection() {
   return (
-    <section className="py-32 bg-[#e8eaed] relative">
-      <div className="max-w-7xl mx-auto px-8">
-        <div className="text-center mb-20 space-y-3">
+    <section className="py-16 md:py-32 bg-[#e8eaed] relative">
+      <div className="max-w-7xl mx-auto px-5 sm:px-8">
+        <div className="text-center mb-12 md:mb-20 space-y-3">
           <span className="editorial-caps text-secondary text-xs font-semibold">Excellence Defined</span>
           <h2 className="font-headline text-4xl text-primary">{brand.name} Standard</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Large card */}
-          <div className="md:col-span-2 bg-surface-container-lowest p-10 rounded-xl flex flex-col justify-between min-h-[380px] hover:border-b-4 hover:border-secondary border-b-4 border-transparent transition-all group">
+          <div className="md:col-span-2 bg-surface-container-lowest p-6 md:p-10 rounded-xl flex flex-col justify-between min-h-[280px] md:min-h-[380px] hover:border-b-4 hover:border-secondary border-b-4 border-transparent transition-all group">
             <div className="space-y-5">
               <span className="material-symbols-outlined text-4xl text-primary" style={{ fontVariationSettings: "'FILL' 1" }}>
                 {brand.features[0].icon}
@@ -170,7 +170,7 @@ function BentoSection() {
           </div>
 
           {/* Dark card */}
-          <div className="liquid-gradient p-10 rounded-xl text-white flex flex-col justify-between">
+          <div className="liquid-gradient p-6 md:p-10 rounded-xl text-white flex flex-col justify-between">
             <div>
               <h3 className="font-headline text-2xl mb-4">24/7 Priority<br />Support</h3>
               <p className="text-white/70 text-sm font-light leading-relaxed">
@@ -181,7 +181,7 @@ function BentoSection() {
           </div>
 
           {/* Feature card */}
-          <div className="bg-surface-container-lowest p-10 rounded-xl flex flex-col">
+          <div className="bg-surface-container-lowest p-6 md:p-10 rounded-xl flex flex-col">
             <span className="material-symbols-outlined text-4xl text-secondary mb-5">
               {brand.features[1].icon}
             </span>
@@ -201,7 +201,7 @@ function BentoSection() {
                 className="object-cover"
               />
             </div>
-            <div className="p-10 flex flex-col justify-center space-y-5">
+            <div className="p-6 md:p-10 flex flex-col justify-center space-y-4 md:space-y-5">
               <h3 className="font-headline text-2xl text-primary">Portfolio of Perfection</h3>
               <p className="text-on-surface-variant text-sm font-light leading-relaxed">
                 Every pool we service is treated as an architectural masterpiece. Explore our gallery of aquatic transformations.
@@ -231,7 +231,7 @@ function BentoSection() {
 
 function CtaSection() {
   return (
-    <section className="py-32 bg-primary relative overflow-hidden">
+    <section className="py-20 md:py-32 bg-primary relative overflow-hidden">
       {/* Decorative wave inside */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
         <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1440 320">
@@ -239,7 +239,7 @@ function CtaSection() {
         </svg>
       </div>
 
-      <div className="max-w-4xl mx-auto px-8 text-center space-y-10 relative z-10">
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center space-y-8 md:space-y-10 relative z-10">
         <span className="material-symbols-outlined text-5xl text-secondary block" style={{ fontVariationSettings: "'FILL' 1" }}>waves</span>
         <h2 className="font-headline text-4xl md:text-5xl text-white leading-tight">
           {brand.finalCta.headline.split(".")[0]}. <br />

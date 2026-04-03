@@ -75,7 +75,7 @@ export default function CustomerMobilePreviewPage() {
         <span className="text-white/20 text-sm ml-auto">{brand.name} — Customer App</span>
       </div>
 
-      <div className="flex flex-col lg:flex-row items-start justify-center gap-10 w-full max-w-5xl">
+      <div className="flex flex-col xl:flex-row items-center xl:items-start justify-center gap-8 w-full max-w-5xl">
 
         {/* Phone frame — flexbox column */}
         <div className="flex-shrink-0 mx-auto" style={{

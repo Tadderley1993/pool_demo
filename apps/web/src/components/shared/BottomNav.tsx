@@ -29,7 +29,7 @@ export function BottomNav() {
             >
               {item.icon}
             </span>
-            <span className="editorial-caps text-[9px] font-bold mt-1">
+            <span className="editorial-caps text-[9px] font-bold mt-1 truncate max-w-[72px] text-center leading-tight">
               {item.label}
             </span>
           </Link>
