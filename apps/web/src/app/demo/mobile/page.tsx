@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { brand } from "@/config/brand";
 
@@ -61,9 +61,20 @@ function DriverTabBar({ tab, setTab }: { tab: DriverTab; setTab: (t: DriverTab) 
 
 export default function DriverMobilePreviewPage() {
   const [tab, setTab] = useState<DriverTab>("home");
+  const [phoneScale, setPhoneScale] = useState(1);
+
+  useEffect(() => {
+    const update = () => setPhoneScale(Math.min(1, (window.innerWidth - 32) / 391));
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const phoneW = 375, phoneH = 812, border = 8;
+  const frameW = phoneW + border * 2, frameH = phoneH + border * 2;
 
   return (
-    <div className="min-h-screen bg-[#0d1b2a] flex flex-col items-center justify-start py-10 px-4 gap-6">
+    <div className="min-h-screen bg-[#0d1b2a] flex flex-col items-center justify-start py-6 px-4 gap-6">
       <div className="w-full max-w-5xl flex items-center gap-3">
         <Link href="/demo" className="flex items-center gap-1.5 text-white/60 hover:text-white text-sm font-medium transition-colors">
           <span className="material-symbols-outlined text-base">arrow_back</span>
@@ -74,29 +85,34 @@ export default function DriverMobilePreviewPage() {
 
       <div className="flex flex-col xl:flex-row items-center xl:items-start justify-center gap-8 w-full max-w-5xl">
 
-        {/* Phone frame — flexbox column, no absolute positioning */}
-        <div className="flex-shrink-0 mx-auto" style={{
-          width: 375, height: 812,
-          borderRadius: 44,
-          border: "8px solid rgba(255,255,255,0.12)",
-          overflow: "hidden",
-          background: BG,
-          display: "flex",
-          flexDirection: "column",
-          boxShadow: "0 40px 80px rgba(0,0,0,0.6)",
-        }}>
-          <StatusBar />
-          <div style={{ flex: 1, overflowY: "auto" }}>
-            {tab === "home"    && <HomeScreen />}
-            {tab === "jobs"    && <JobsScreen />}
-            {tab === "route"   && <RouteScreen />}
-            {tab === "profile" && <ProfileScreen />}
+        {/* Phone scaling wrapper */}
+        <div style={{ position: "relative", width: frameW * phoneScale, height: frameH * phoneScale, flexShrink: 0 }} className="mx-auto">
+          <div style={{
+            position: "absolute", top: 0, left: 0,
+            transformOrigin: "top left",
+            transform: `scale(${phoneScale})`,
+            width: phoneW, height: phoneH,
+            borderRadius: 44,
+            border: `${border}px solid rgba(255,255,255,0.12)`,
+            overflow: "hidden",
+            background: BG,
+            display: "flex",
+            flexDirection: "column",
+            boxShadow: "0 40px 80px rgba(0,0,0,0.6)",
+          }}>
+            <StatusBar />
+            <div style={{ flex: 1, overflowY: "auto" }}>
+              {tab === "home"    && <HomeScreen />}
+              {tab === "jobs"    && <JobsScreen />}
+              {tab === "route"   && <RouteScreen />}
+              {tab === "profile" && <ProfileScreen />}
+            </div>
+            <DriverTabBar tab={tab} setTab={setTab} />
           </div>
-          <DriverTabBar tab={tab} setTab={setTab} />
         </div>
 
-        {/* Sidebar */}
-        <div className="text-white max-w-xs">
+        {/* Sidebar — hidden on small screens */}
+        <div className="hidden xl:block text-white max-w-xs">
           <h1 className="text-3xl font-extrabold mb-2">{brand.name}</h1>
           <p className="text-white/60 text-sm mb-8 leading-relaxed">
             Driver mobile app — built with Expo React Native. Tap the tabs to explore each screen.
@@ -114,6 +130,16 @@ export default function DriverMobilePreviewPage() {
             <p className="font-bold text-white/70 mb-1">Built with Expo</p>
             Run on a real device with Expo Go — same code, same brand config.
           </div>
+        </div>
+
+        {/* Mobile tab switcher — shown only when sidebar is hidden */}
+        <div className="xl:hidden flex gap-2 flex-wrap justify-center">
+          {DRIVER_TABS.map((t) => (
+            <button key={t.id} onClick={() => setTab(t.id)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-bold transition-all ${tab === t.id ? "bg-white/15 border border-white/20 text-white" : "text-white/50 hover:text-white/80"}`}>
+              <span>{t.emoji}</span>{t.label}
+            </button>
+          ))}
         </div>
 
       </div>
