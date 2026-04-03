@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
       {/* KPIs */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
         {kpis.map((kpi) => (
-          <div key={kpi.label} className="bg-surface-container-lowest p-6 rounded-3xl shadow-sm">
+          <div key={kpi.label} className="bg-surface-container-lowest p-4 sm:p-6 rounded-3xl shadow-sm">
             <div className={`w-12 h-12 rounded-2xl flex items-center justify-center mb-4 ${kpi.color}`}>
               <span className="material-symbols-outlined">{kpi.icon}</span>
             </div>
@@ -64,13 +64,13 @@ export default function AdminDashboardPage() {
       <div className="bg-surface-container-lowest rounded-3xl shadow-sm overflow-hidden">
         <div className="flex justify-between items-center p-6 border-b border-outline-variant/20">
           <h2 className="text-xl font-bold text-on-surface">Today&apos;s Jobs</h2>
-          <div className="flex gap-3">
-            <button className="px-4 py-2 text-sm font-semibold text-primary bg-primary-container rounded-xl hover:opacity-80">
-              View All
-            </button>
-          </div>
+          <button className="px-4 py-2 text-sm font-semibold text-primary bg-primary-container rounded-xl hover:opacity-80">
+            View All
+          </button>
         </div>
-        <div className="overflow-x-auto">
+
+        {/* Desktop table */}
+        <div className="hidden md:block overflow-x-auto">
           <table className="w-full">
             <thead>
               <tr className="text-left text-xs font-bold uppercase tracking-widest text-outline bg-surface-container-low">
@@ -97,7 +97,7 @@ export default function AdminDashboardPage() {
                   <td className="px-6 py-4">{job.tech}</td>
                   <td className="px-6 py-4 font-semibold">{job.time}</td>
                   <td className="px-6 py-4">
-                    <span className={`px-3 py-1 rounded-full text-xs font-bold ${statusColors[job.status]}`}>
+                    <span className={`px-3 py-1 rounded-full text-xs font-bold whitespace-nowrap ${statusColors[job.status]}`}>
                       {job.status}
                     </span>
                   </td>
@@ -110,6 +110,31 @@ export default function AdminDashboardPage() {
               ))}
             </tbody>
           </table>
+        </div>
+
+        {/* Mobile cards */}
+        <div className="md:hidden divide-y divide-outline-variant/10">
+          {recentJobs.map((job) => (
+            <div key={job.id} className="p-4 flex items-start gap-3">
+              <div className="flex-1 min-w-0 space-y-1">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="font-mono font-bold text-primary text-sm">{job.id}</span>
+                  <span className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold whitespace-nowrap ${statusColors[job.status]}`}>
+                    {job.status}
+                  </span>
+                </div>
+                <p className="font-semibold text-on-surface text-sm truncate">{job.customer}</p>
+                <p className="text-xs text-on-surface-variant truncate">{job.address}</p>
+                <div className="flex items-center gap-3 text-xs text-on-surface-variant pt-0.5">
+                  <span>👤 {job.tech}</span>
+                  <span>🕐 {job.time}</span>
+                </div>
+              </div>
+              <button className="text-primary flex-shrink-0 mt-1">
+                <span className="material-symbols-outlined text-sm">more_horiz</span>
+              </button>
+            </div>
+          ))}
         </div>
       </div>
 
